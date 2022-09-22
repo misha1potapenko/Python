@@ -9,12 +9,15 @@
 # Примеры:
 # o	1, 4, 8, 7, 5 -> 8
 # o	78, 55, 36, 90, 2 -> 90
-list = [3, 5, 8, 9, 10]
-max = list[0]
-for i in list:
-    if i > max:
-        max = i
-print(max)
+# list = [3, 5, 8, 9, 10]
+# max = list[0]
+# for i in list:
+#     if i > max:
+#         max = i
+# print(max)
+a = float(input("n= "))
+n = int(a * 10 % 10)
+print(n)
 
 
 
