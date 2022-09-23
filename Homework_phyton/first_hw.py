@@ -5,4 +5,9 @@
 # o	7 -> да
 # o	1 -> нет
 day = int(input("Введите день недели: "))
-if
+if day == 1 or day == 2 or day == 3 or day == 4 or day == 5:
+    print("Будний день")
+elif day == 6 or day == 7:
+    print("Выходной день")
+else:
+    print("Вы ввели не верное число, введите число от 1 до 7")
