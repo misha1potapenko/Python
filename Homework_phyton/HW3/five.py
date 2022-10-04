@@ -10,14 +10,14 @@ def fib():
     lst_fib = [1, 0, 1]
     for i in range(3, number_fib + 2):
         lst_fib.append(lst_fib[i - 1] + lst_fib[i - 2])
-    print(lst_fib)
+    # print(lst_fib)
     lst_fib_1 = []
     j = -1
     for i in range(3, number_fib + 2):
         lst_fib_1.append(lst_fib[i] * j)
         j *= -1
     lst_fib_2 = lst_fib_1[::-1]
-    print(lst_fib_2)
+    # print(lst_fib_2)
     lst = lst_fib_2 + lst_fib
     print(lst)
 
