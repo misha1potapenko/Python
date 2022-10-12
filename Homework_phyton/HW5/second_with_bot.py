@@ -1,5 +1,5 @@
 import random
-sweet = 2021
+sweet = 120
 
 while sweet >= 28:
     try:
@@ -13,7 +13,7 @@ while sweet >= 28:
             break
     except:
         print("Вы ввели ерунду, ваш ход передан другому игроку")
-    user_two = random.randint(1, 28)
+    user_two = sweet % 29 #random.randint(1, 28)
     print("Компьютер ввел число: ", user_two)
     sweet -= user_two
     print("Осталось", sweet)

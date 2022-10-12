@@ -4,29 +4,62 @@
 # так и отрицательными. Степени многочленов могут отличаться.
 
 
-with open('new_file.txt', 'r') as file:
-    poly_1 = file.readline()
-    list_of_poly_1 = poly_1.split('+')
+polinom_1 = '5*x^2 + 3*x^6 - 15*x**3 + 66'
+polinom_2 = '13*x^3 + 3*x^4 - 15*x^8 - 99'
+
+polinom_1 = polinom_1.replace(' ', '').replace('**', '^').replace('*', '')
+polinom_2 = polinom_2.replace(' ', '').replace('**', '^').replace('*', '')
 
 
-with open('file_2.txt', 'r') as file:
-    poly_2 = file.readline()
-    list_of_poly_2 = poly_2.split('+')
+def get_dict_from_polinom(str_pol):
+    lst = []
+    last_index = -1
+    neg = False
+    for i, char in enumerate(str_pol):
+        if char == '+' or char == '-':
+            if neg:
+                lst.append('-' + str_pol[last_index + 1:i])
+            else:
+                lst.append(str_pol[last_index + 1:i])
+            last_index = i
+            neg = char == '-'
+    if neg:
+        lst.append('-' + str_pol[last_index + 1:])
+    else:
+        lst.append(str_pol[last_index + 1:])
 
-print(f'{list_of_poly_1} + {list_of_poly_2}')
-sum_poly = list_of_poly_1 + list_of_poly_2
+    print(lst)
+    dct = {}
+    for item in lst:
+        for i, char in enumerate(item):
+            if not char.isdigit() and char != '.' and char != '-':
+                dct[item[i:]] = float(item[:i])
+                break
+        else:
+            dct[''] = float(item)
 
-# with open('sum.txt', 'w', encoding='utf-8') as file:
-#     file.write(sum_pol_2)
-sum_pol = []
-for i in range(len(list_of_poly_2)):
-    sum_pol.append(int(list_of_poly_1[i][:2]) + int(list_of_poly_2[i][:2]))
-print(sum_pol)
-sum_pol = sum_pol[::-1]
-sum_pol_2 = "+".join([f'{(j,"")[j==1]}x^{(i, "")[i==0]}' for i, j in enumerate(sum_pol) if j][::-1])
-print(sum_pol_2)
+    return dct
 
 
-with open('sum.txt', 'w', encoding='utf-8') as file:
-    file.write(sum_pol_2[0:-2])
+dct1 = get_dict_from_polinom(polinom_1)
+dct2 = get_dict_from_polinom(polinom_2)
+
+set1 = set(dct1.keys())
+set2 = set(dct2.keys())
+
+itog_dct = {}
+
+for key in set1.intersection(set2):
+    itog_dct[key] = dct1[key] + dct2[key]
+
+for key in set1.symmetric_difference(set2):
+    if key in dct1:
+        itog_dct[key] = dct1[key]
+    else:
+        itog_dct[key] = dct2[key]
+
+print(itog_dct)
+
+print([f'{itog_dct[key]}{key}' for key in sorted(itog_dct.keys(), reverse=True)])
+
 

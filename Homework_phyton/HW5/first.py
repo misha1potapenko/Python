@@ -1,8 +1,8 @@
 # Напишите программу, удаляющую из текста все слова, содержащие ""абв"".
 
-with open("HW.txt", "w") as data:
-    data.write("abc dfgsdabc jfhjkhj fsafas rttrey uyutyu abcdsgfg abc  ghtryr")
-with open("HW.txt", "r") as data:
+with open("HW.txt", "w", encoding="UTF-8") as data:
+    data.write("абв аоывоаыабв ываожфыооаабвваыфа абв ваофжао овафжо абв авпвп")
+with open("HW.txt", "r", encoding="UTF-8") as data:
     string = data.readline().split()
-result = list(filter(lambda x: x.find("abc") == -1, string))
+result = list(filter(lambda x: "абв" not in x, string))
 print(result)
