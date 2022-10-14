@@ -17,8 +17,8 @@ def pi():
     pi_for = 1 - 1 / 3 + 1 / 5 - 1 / 7 + 1 / 9
     for i in range(5, d):
         pi_for = pi_for + (1 / (2 * i + 1)) * (-1) ** i
-    pi_ = pi_for * 4
-    print(f'Точность  pi = {pi_} до {count} знака после запятой')
+    pi_ = str(pi_for * 4)
+    print(f'Точность  pi = {pi_[:count+2]} до {count} знака после запятой')
 
 
 pi()
