@@ -15,18 +15,9 @@
 # sum_lst(first_lst)
 
 first_lst = [5, 10, 8, 15, 26, 7, 45, 32, 18, 7, 44, 10]
-
-new_list = [n for i, n in enumerate(first_lst) if i % 2 != 0]
-
-
-def sum_num(lst=[]):
-    sum = 0
-    for i in lst:
-        sum += i
-    return sum
-
+new_list = sum([n for i, n in enumerate(first_lst) if i % 2 != 0])
 
 print(new_list)
-print(sum_num(new_list))
+
 
 
