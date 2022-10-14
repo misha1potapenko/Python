@@ -30,4 +30,8 @@
 first_lst = [5, 10, 8, 1, 3, 7, 4, 2, 1, 7, 3]
 second_lst = first_lst[::-1]
 finish_lst = [a + b for a, b in zip(first_lst, second_lst)]
-print(finish_lst)
+if len(finish_lst) % 2 == 0:
+    len_lst = int(len(first_lst) / 2)
+    print(finish_lst[:len_lst])
+else:
+    print(finish_lst[:(len(first_lst)) // 2 + 1])
