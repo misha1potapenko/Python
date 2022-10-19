@@ -8,7 +8,7 @@ def file_exp(data):
         with open('phone_book_exp.txt', "w", encoding='utf-8') as g:
             for each in lines:
                 if each.__contains__(','):
-                    str = each.split(',')
+                    str = each.split(', ')
                     g.writelines('\n'.join(str))
                     g.writelines('\n')
     elif user_choice == 1:

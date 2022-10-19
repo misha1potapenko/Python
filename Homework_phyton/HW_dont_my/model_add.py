@@ -16,4 +16,4 @@ def add_new_data(data, data_colum):
             f.writelines('\n' + input('Введите данные через запятую \n'))
             f.write(';')
     else:
-        print("Пожалуйста, сделайте выбор между 1 и 2")
+        print("Выбор некорректен, Вы вышли в главное меню ")
