@@ -7,31 +7,36 @@ import model_export as me
 import logger as log
 
 data = 'phone_book.txt'
-data_str = 'phone_book_str.txt'
+data_colum = 'phone_book_str.txt'
 def button_click():
-    task = 0
-    while task < 8:
-        task = int(input("Выбери что нужно сделать: \n"
-        "1 - Чтение \n"
-        "2 - Запись \n"
-        "3 - Импорт \n"
-        "4 - Экспорт \n"
-        "5 - Удаление \n"
-        "6 - Поиск \n"
-        "5 - Выход \n"
-        "Введи нужную цифру \n"))
-        if task == 1:
-            mr.read(data)
-        elif task == 2:
-            ma.add_new_data(data, data_str)
-        elif task == 3:
-            mi.file_imp(data)
-        elif task == 4:
-            me.file_exp(data)
-        elif task == 5:
-            md.delete_data(data)    
-        elif task == 6:
-            ms.search_data(data) 
-        elif task == 7:
-            break
-        
+
+        task = 0
+        while task < 8:
+            try:
+                task = int(input("Выбери что нужно сделать: \n"
+                "1 - Чтение \n"
+                "2 - Запись \n"
+                "3 - Импорт \n"
+                "4 - Экспорт \n"
+                "5 - Удаление \n"
+                "6 - Поиск \n"
+                "5 - Выход \n"
+                "Введи нужную цифру \n"))
+                if task == 1:
+                    mr.read(data)
+                elif task == 2:
+                    ma.add_new_data(data, data_colum)
+                elif task == 3:
+                    mi.file_imp(data)
+                elif task == 4:
+                    me.file_exp(data)
+                elif task == 5:
+                    md.delete_data(data)
+                elif task == 6:
+                    ms.search_data(data)
+                elif task == 7:
+                    break
+
+
+            except:
+                print("НЕ то ввели, попробуйте еще раз")

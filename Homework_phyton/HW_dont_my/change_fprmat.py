@@ -1,3 +1,7 @@
+
+
+
+
 def imp_column_to_string():
     with open("phone_book_new_2.txt", encoding='utf-8') as f:
         lines = f.readlines()
@@ -10,6 +14,7 @@ def imp_column_to_string():
                 if each != '\n':
                     lst1.append(each.replace("\n", ""))
                     j += 1
+                    print(lst1)
                     if j == 4:
                         g.writelines(', '.join(lst1))
                         g.writelines('\n')
@@ -28,3 +33,4 @@ def imp_str_to_column():
                 g.writelines('\n'.join(str))
                 g.writelines('\n')
 
+imp_column_to_string()
