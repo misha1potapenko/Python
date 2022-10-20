@@ -7,7 +7,7 @@ import model_export as me
 import logger as log
 
 data = 'phone_book.txt'
-data_colum = 'phone_book_str.txt'
+
 def button_click():
 
         task = 0
@@ -25,7 +25,7 @@ def button_click():
                 if task == 1:
                     mr.read(data)
                 elif task == 2:
-                    ma.add_new_data(data, data_colum)
+                    ma.add_new_data(data)
                 elif task == 3:
                     mi.file_imp(data)
                 elif task == 4:
@@ -40,3 +40,5 @@ def button_click():
 
             except:
                 print("НЕ то ввели, попробуйте еще раз")
+        else:
+            print("Вы вышли из программы, запустите еще раз")
