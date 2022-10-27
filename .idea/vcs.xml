@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Homework_phyton/HW2/Homework_python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Homework_phyton/calc2/PythonCalculator" vcs="Git" />
   </component>
 </project>
