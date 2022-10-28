@@ -50,7 +50,8 @@ def calc(text):
             res = 'Вы ввели некорректно, введите два числа и между ними действие, например: 2*3'
             return res
     except:
-        res = 'Я не понимаю запятых, поменяйте пожалуйста  на точки, и могу выполнять одно действие'
+        res = 'Ввод не корректен, введите два числа и между ними действие ' \
+              'но я не понимаю запятых, только точки'
         return res
 
 
@@ -66,27 +67,28 @@ def viev_calc2(msg: telebot.types.Message):
 
 
 def compreh(text):
-    res = None
-    lst = text.split()
-    if lst[1] == '-':
-        res = complex(lst[0]) - complex(lst[2])
-        return str(res)
-    elif lst[1] == '+':
-        res = complex(lst[0]) + complex(lst[2])
-        return str(res)
-    elif lst[1] == '/':
-        res = complex(lst[0]) / complex(lst[2])
-        return str(res)
-    elif lst[1] == '*':
-        res = complex(lst[0]) * complex(lst[2])
-        return str(res)
-    else:
-        print('Ввод не корректен')
+    try:
+        res = None
+        lst = text.split()
+        if lst[1] == '-':
+            res = complex(lst[0]) - complex(lst[2])
+            return str(res)
+        elif lst[1] == '+':
+            res = complex(lst[0]) + complex(lst[2])
+            return str(res)
+        elif lst[1] == '/':
+            res = complex(lst[0]) / complex(lst[2])
+            return str(res)
+        elif lst[1] == '*':
+            res = complex(lst[0]) * complex(lst[2])
+            return str(res)
+    except:
+        res = 'Ввод не корректен'
+        return res
 @bot.message_handler()
 def echo(msg: telebot.types.Message):
-    bot.send_message(msg.from_user.id, 'Привет, я работаю калькулятором, но могу только делать одно действие '
-                                       'поэтому введи два числа и между ними действие, например 23*25.6' )
-    bot.send_message(chat_id=msg.from_user.id, text=f'Результат: {calc(msg.text)}')
+    bot.send_message(msg.from_user.id, "Ивините, я понимаю только команды /ration и /comprehensive" )
+
 
 
 bot.polling(none_stop=True)
