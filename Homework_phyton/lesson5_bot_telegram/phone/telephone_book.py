@@ -4,17 +4,18 @@ import telebot
 from telebot import types
 
 
-bot = TeleBot('5652427813:AAE0xDwIj0qzyY9Hc2-UGR_FnoxiZPRyV08')
+bot = TeleBot('')
 
 
 @bot.message_handler(commands=['start'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = types.KeyboardButton("/show")
+    btn2 = types.KeyboardButton('/add_contact')
     btn3 = types.KeyboardButton("/export_columns")
     btn4 = types.KeyboardButton("/export_lines")
     btn5 = types.KeyboardButton("/find")
-    markup.add(btn1, btn3, btn4, btn5)
+    markup.add(btn1, btn2, btn3, btn4, btn5)
     bot.send_message(message.chat.id, text="Привет, {0.first_name}! Я тестовый бот и являюсь телефонной книгой, "
                                            "выбери что надо сделать /show  /export_columns  "
                                            " /export_lines  или /find "
@@ -107,6 +108,20 @@ def sum_items(msg: telebot.types.Message):
 
 
 
+@bot.message_handler(commands=['add_contact'])
+def add_contact(msg: telebot.types.Message):
+    bot.send_message(chat_id=msg.from_user.id, text="Добавьте ФИО и номер телефона")
+    bot.register_next_step_handler(callback=add_cont, message=msg)
+
+
+def add_cont(msg: telebot.types.Message):
+    bot.send_message(chat_id=msg.from_user.id, text=add_con(msg.text))
+
+
+def add_con(text):
+    doc = open('phone_book.txt', 'a', encoding='utf-8')
+    doc.write("\n{imia}".format(imia=text))
+    return "Добавлено"
 
 @bot.message_handler()
 def echo(msg: telebot.types.Message):
