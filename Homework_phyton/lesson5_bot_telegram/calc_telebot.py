@@ -4,7 +4,7 @@ import telebot
 from telebot import types
 from time import time
 
-bot = TeleBot('')
+bot = TeleBot('5740754370:AAFK4xn53nVw4kFXBM_WApBRtG6gtlzsc70')
 
 
 def my_log(msg: telebot.types.Message):
