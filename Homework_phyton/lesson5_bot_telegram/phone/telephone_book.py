@@ -4,7 +4,7 @@ import telebot
 from telebot import types
 
 
-bot = TeleBot('')
+bot = TeleBot('5652427813:AAE0xDwIj0qzyY9Hc2-UGR_FnoxiZPRyV08')
 
 
 @bot.message_handler(commands=['start'])
@@ -18,7 +18,7 @@ def start(message):
     markup.add(btn1, btn2, btn3, btn4, btn5)
     bot.send_message(message.chat.id, text="Привет, {0.first_name}! Я тестовый бот и являюсь телефонной книгой, "
                                            "выбери что надо сделать /show  /export_columns  "
-                                           " /export_lines  или /find "
+                                           " /export_lines  /add_contact  или /find "
                                            "ещё я могу дописать в телефонную книгу если скинешь мне файл".format(message.from_user), reply_markup=markup)
 
 
