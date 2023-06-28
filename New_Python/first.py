@@ -13,19 +13,39 @@
 # Строку в верхнем регистре, если в строке есть хотя бы одна заглавная буква
 # ✔Строку в нижнем регистре в остальных случаях
 
-user_input = input("Введите что-либо ")
+# user_input = input("Введите что-либо ")
+#
+# if user_input.isdigit():
+#     print("Целое число ", user_input)
+#
+# elif user_input.replace(".", "").replace("-", "").isdigit():
+#     print("Вещественное число ", user_input)
+#
+# elif user_input == user_input.lower():
+#     print("Все строчные ", user_input)
+#
+# else:
+#     print("Есть хотябы одна заглавная  ", user_input.upper())
 
-if user_input.isdigit():
-    print("Целое число ", user_input)
+# my_tuple = (3, 4.2, True, "Help", 5, False)
+#
+# my_dict = {}
+#
+# for i in my_tuple:
+#     if type(i) not in my_dict.keys():
+#
+#         my_dict[type(i)] = [i]
+#     else:
+#         my_dict[type(i)].append(i)
+# print(my_dict)
+#
+#
+# spam = my_dict.setdefault('five')
+#
+# eggs = my_dict.setdefault('six', 6)
 
-elif user_input.replace(".", "").replace("-", "").isdigit():
-    print("Вещественное число ", user_input)
-
-elif user_input == user_input.lower():
-    print("Все строчные ", user_input)
-
-else:
-    print("Есть хотябы одна заглавная  ", user_input.upper())
+# ✔ Создайте вручную список с повторяющимися элементами.
+# ✔ Удалите из него все элементы, которые встречаются дважды.
 
 
 
