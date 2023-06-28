@@ -1,3 +1,6 @@
+import random
+
+
 def cache(func):
     _cache_dict = {}
 
@@ -17,6 +20,13 @@ def factorial(n):
         f *= i
     return f
 
-print(factorial(10))
-print(factorial(15))
-print(factorial(20))
+
+@cache
+def rnd(a, b):
+    return random.randint(a, b)
+
+
+print(rnd(1, 10))
+print(rnd(1, 10))
+print(rnd(1, 10))
+print(rnd(1, 10))
