@@ -7,7 +7,6 @@
 import random
 
 
-
 def count(num: int = 1):
     def deco(func):
         def wrapper(*args, **kwargs):
